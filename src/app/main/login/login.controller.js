@@ -10,7 +10,7 @@
         .controller('LoginController', LoginController);
 
     /** @ngInject */
-    function LoginController(LoginService,$location)
+    function LoginController(LoginService,$state,DialogFactory)
     {
         var vm = this;
         vm.credenciales = {};
@@ -19,10 +19,12 @@
             var p = LoginService.login(vm.credenciales);
             p.then(
                 function (datos) {
-                   $location.path("/sample");
+                    alquiler._setToken(datos.access_token);
+                    DialogFactory.ShowSimpleToast("Entrando..");
+                    $state.go('app.alquiler', {});
                 },
                 function (error) {
-                    console.log(JSON.stringify(error));
+                       console.log(error);
                 }
             )
         }

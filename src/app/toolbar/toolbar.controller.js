@@ -11,6 +11,7 @@
     {
         var vm = this;
 
+        vm.nombre = "Erley Blanco";
         // Data
         $rootScope.global = {
             search: ''

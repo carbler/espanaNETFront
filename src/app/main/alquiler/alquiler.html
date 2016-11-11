@@ -1,96 +1,86 @@
-<div ng-controller="DemoCtrl" layout="column" ng-cloak class="md-inline-form">
+<div id="calendar" class="page-layout simple fullwidth" layout="column">
 
-    <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-        <div>
-            <md-input-container>
-                <label>Title</label>
-                <input ng-model="user.title">
-            </md-input-container>
+    <!-- HEADER -->
+    <div class="header" ng-class="vm.currentMonthShort">
 
-            <md-input-container>
-                <label>Email</label>
-                <input ng-model="user.email" type="email">
-            </md-input-container>
+        <div class="header-content" layout="column" layout-align="space-between">
+
+            <div class="header-top" layout="row" layout-align="space-between center" layout-xs="column">
+                <div class="logo" layout="row" layout-align="start center">
+                    <span class="logo-icon">
+                        <md-icon md-font-icon="icon-calendar-today"></md-icon>
+                    </span>
+
+                    <span class="logo-text" translate="CALENDAR.CALENDAR">Calendar</span>
+                </div>
+
+                <!-- TOOLBAR -->
+                <div class="toolbar" layout="row" layout-align="start center">
+                    <md-button class="md-icon-button" aria-label="Search" translate
+                               translate-attr-aria-label="CALENDAR.SEARCH">
+                        <md-icon md-font-icon="icon-magnify"></md-icon>
+                        <md-tooltip><span translate="CALENDAR.SEARCH">Search</span></md-tooltip>
+                    </md-button>
+
+                    <md-button class="md-icon-button" ng-click="vm.calendar.today()" aria-label="Today" translate
+                               translate-attr-aria-label="CALENDAR.TODAY">
+                        <md-icon md-font-icon="icon-calendar-today"></md-icon>
+                        <md-tooltip><span translate="CALENDAR.TODAY">Today</span></md-tooltip>
+                    </md-button>
+
+                    <md-button class="md-icon-button" ng-click="vm.calendar.changeView('agendaDay')" aria-label="Day"
+                               translate translate-attr-aria-label="CALENDAR.DAY">
+                        <md-icon md-font-icon="icon-view-day"></md-icon>
+                        <md-tooltip><span translate="CALENDAR.DAY">Day</span></md-tooltip>
+                    </md-button>
+
+                    <md-button class="md-icon-button" ng-click="vm.calendar.changeView('agendaWeek')" aria-label="Week"
+                               translate translate-attr-aria-label="CALENDAR.WEEK">
+                        <md-icon md-font-icon="icon-view-week"></md-icon>
+                        <md-tooltip><span translate="CALENDAR.WEEK">Week</span></md-tooltip>
+                    </md-button>
+
+                    <md-button class="md-icon-button" ng-click="vm.calendar.changeView('month')" aria-label="Month"
+                               translate translate-attr-aria-label="CALENDAR.MONTH">
+                        <md-icon md-font-icon="icon-view-module"></md-icon>
+                        <md-tooltip><span translate="CALENDAR.MONTH">Month</span></md-tooltip>
+                    </md-button>
+                </div>
+            </div>
+            <!-- / TOOLBAR -->
+
+            <!-- HEADER BOTTOM -->
+            <div class="header-bottom" layout="row" layout-align="center center">
+                <md-button class="md-icon-button arrow" ng-click="vm.calendar.prev()" aria-label="Previous"
+                           translate translate-attr-aria-label="CALENDAR.PREVIOUS">
+                    <md-icon md-font-icon="icon-chevron-left"></md-icon>
+                </md-button>
+
+                <div class="title">
+                    {{vm.calendarView.title}}
+                </div>
+
+                <md-button class="md-icon-button arrow" ng-click="vm.calendar.next()" aria-label="Next" translate
+                           translate-attr-aria-label="CALENDAR.NEXT">
+                    <md-icon md-font-icon="icon-chevron-right"></md-icon>
+                </md-button>
+            </div>
+            <!-- / HEADER BOTTOM -->
         </div>
-    </md-content>
 
-    <md-content layout-padding>
-        <div>
-            <form name="userForm">
+        <!-- ADD EVENT BUTTON -->
+        <md-button class="add-event-button md-fab md-warn" ng-click="vm.addEvent($event)"
+                   aria-label="Add event" translate translate-attr-aria-label="CALENDAR.ADD_EVENT">
+            <md-icon md-font-icon="icon-plus"></md-icon>
+        </md-button>
+        <!-- / ADD EVENT BUTTON -->
+    </div>
+    <!-- / HEADER -->
 
-                <div layout-gt-xs="row">
-                    <md-input-container class="md-block" flex-gt-xs>
-                        <label>Company (Disabled)</label>
-                        <input ng-model="user.company" disabled>
-                    </md-input-container>
-
-                    <md-input-container>
-                        <label>Enter date</label>
-                        <md-datepicker ng-model="user.submissionDate"></md-datepicker>
-                    </md-input-container>
-                </div>
-
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>First name</label>
-                        <input ng-model="user.firstName">
-                    </md-input-container>
-
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Long Last Name That Will Be Truncated And 3 Dots (Ellipsis) Will Appear At The End</label>
-                        <input ng-model="theMax">
-                    </md-input-container>
-                </div>
-
-                <md-input-container class="md-block">
-                    <label>Address</label>
-                    <input ng-model="user.address">
-                </md-input-container>
-
-                <md-input-container md-no-float class="md-block">
-                    <input ng-model="user.address2" placeholder="Address 2">
-                </md-input-container>
-
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>City</label>
-                        <input ng-model="user.city">
-                    </md-input-container>
-
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>State</label>
-                        <md-select ng-model="user.state">
-                            <md-option ng-repeat="state in states" value="{{state.abbrev}}">
-                                {{state.abbrev}}
-                            </md-option>
-                        </md-select>
-                    </md-input-container>
-
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Postal Code</label>
-                        <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
-                               required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
-
-                        <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-                            <div ng-message="required" class="my-message">You must supply a postal code.</div>
-                            <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
-                                code.
-                            </div>
-                            <div ng-message="md-maxlength" class="my-message">
-                                Don't use the long version silly...we don't need to be that specific...
-                            </div>
-                        </div>
-                    </md-input-container>
-                </div>
-
-                <md-input-container class="md-block">
-                    <label>Biography</label>
-                    <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-                </md-input-container>
-
-
-            </form>
-        </div>
-    </md-content>
+    <!-- CONTENT -->
+    <div class="content">
+        <div id="calendarView" ui-calendar="vm.calendarUiConfig.calendar" ng-model="vm.events" calendar="main"></div>
+    </div>
+    <!-- / CONTENT -->
 
 </div>

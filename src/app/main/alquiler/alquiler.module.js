@@ -1,15 +1,14 @@
-/**
- * Created by Erley on 08/11/2016.
- */
-/**
- * Created by Erley on 08/11/2016.
- */
 (function ()
 {
     'use strict';
 
     angular
-        .module('app.alquiler', [])
+        .module('app.alquiler',
+            [
+                // 3rd Party Dependencies
+                'ui.calendar'
+            ]
+        )
         .config(config);
 
     /** @ngInject */
@@ -19,13 +18,9 @@
         $stateProvider.state('app.alquiler', {
             url      : '/alquiler',
             views    : {
-                'main@'                       : {
-                    templateUrl: 'app/core/layouts/content-only.html',
-                    controller : 'MainController as vm'
-                },
-                'content@app.alquiler': {
+                'content@app': {
                     templateUrl: 'app/main/alquiler/alquiler.html',
-                    controller : 'AlquilerController as vm'
+                    controller : 'alquilerController as vm'
                 }
             },
             bodyClass: 'alquiler'
@@ -34,7 +29,12 @@
         // Translation
         $translatePartialLoaderProvider.addPart('app/main/alquiler');
 
-
+        // Navigation
+        msNavigationServiceProvider.saveItem('alquiler', {
+            title : 'Alquiler',
+            icon  : 'icon-calendar-today',
+            state : 'app.alquiler',
+            weight: 2
+        });
     }
-
 })();

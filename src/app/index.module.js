@@ -22,9 +22,9 @@
 
             // Sample
             'app.sample',
-
             'app.login',
-
-             'app.alquiler'
+            'app.alquiler',
+            'app.dialog',
+            'app.equipos'
         ]);
 })();
