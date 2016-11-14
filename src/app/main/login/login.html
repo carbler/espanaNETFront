@@ -2,7 +2,7 @@
     <div id="login-form-wrapper" layout="column" layout-align="center center">
         <div id="login-form" class="md-whiteframe-8dp">
             <div class="logo md-accent-bg">
-                <span>F</span>
+                <span>E</span>
             </div>
 
             <div class="title" translate="LOGIN.TITLE">Log in to your account</div>
@@ -42,7 +42,7 @@
 
                 <md-button type="submit" class="md-raised md-accent submit-button" aria-label="LOG IN"
                            ng-disabled="loginForm.$invalid || loginForm.$pristine"
-                           translate="LOGIN.LOG_IN" translate-attr-aria-label="LOGIN.LOG_IN" ng-click="vm.Login()">
+                           translate="LOGIN.LOG_IN" translate-attr-aria-label="LOGIN.LOG_IN" ng-click="vm.Login()" ng-keypress="vm.Login()">
                     LOGIN
                 </md-button>
             </form>
