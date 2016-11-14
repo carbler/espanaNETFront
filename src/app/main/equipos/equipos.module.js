@@ -26,6 +26,7 @@
 
         // Translation
         //$translatePartialLoaderProvider.addPart('app/main/equipos');
+
         // Navigation
         msNavigationServiceProvider.saveItem('equipos', {
             title : 'Equipos',
