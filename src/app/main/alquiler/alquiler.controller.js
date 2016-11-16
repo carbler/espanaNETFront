@@ -10,13 +10,15 @@
     function alquilerController($mdDialog, $document)
     {
         var vm = this;
-
         // Data
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
 
+
+
+        /**
         vm.events = [
             [
                 {
@@ -111,7 +113,7 @@
                 }
             ]
         ];
-
+ **/
         vm.calendarUiConfig = {
             calendar: {
                 editable          : true,
@@ -119,8 +121,8 @@
                 header            : '',
                 handleWindowResize: false,
                 aspectRatio       : 1,
-                dayNames          : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-                dayNamesShort     : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                dayNames          : ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+                dayNamesShort     : ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
                 viewRender        : function (view)
                 {
                     vm.calendarView = view;

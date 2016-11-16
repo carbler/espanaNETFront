@@ -32,7 +32,7 @@
             switch ( vm.dialogData.type )
             {
                 case 'add' :
-                    vm.dialogTitle = 'Add Event';
+                    vm.dialogTitle = 'Solicitar Servicio';
                     break;
 
                 case 'edit' :

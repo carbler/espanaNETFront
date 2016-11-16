@@ -4,7 +4,7 @@
 /**
  * Created by Ing. Adrian Vergara on 6/11/2016.
  */
-var alquiler = {
+var user = {
     _setIdUsuario: function (idUsuario) {
         localStorage.setItem('idUsuario', idUsuario);
     },
@@ -24,7 +24,7 @@ var alquiler = {
         return localStorage.nombreCompleto;
     },
     _getUrl: function() {
-        return "http://localhost/ferremotos_server/public/api/";
+        return "http://localhost:51466/"; //si lleva
     },
     _setIdRol: function (idRol) {
         localStorage.setItem('idRol', idRol);
@@ -40,5 +40,11 @@ var alquiler = {
     },
     _getUrlImg: function () {
         return "http://localhost/ferremotos_server/public/repuestos/"
+    },
+    _setUsername: function (username) {
+        localStorage.Username = username;
+    },
+    _getUsername: function () {
+        return localStorage.Username;
     }
 };

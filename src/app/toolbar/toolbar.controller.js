@@ -11,7 +11,7 @@
     {
         var vm = this;
 
-        vm.nombre = "Erley Blanco";
+        vm.nombre = localStorage.nombreCompleto;
         // Data
         $rootScope.global = {
             search: ''
