@@ -25,7 +25,7 @@
         });
 
         // Translation
-        //$translatePartialLoaderProvider.addPart('app/main/equipos');
+        $translatePartialLoaderProvider.addPart('app/main/equipos');
 
         // Navigation
         msNavigationServiceProvider.saveItem('equipos', {

@@ -21,10 +21,10 @@
             'app.quick-panel',
 
             // Sample
-            'app.sample',
             'app.login',
             'app.alquiler',
             'app.dialog',
-            'app.equipos'
+            'app.equipos',
+            'app.registro'
         ]);
 })();

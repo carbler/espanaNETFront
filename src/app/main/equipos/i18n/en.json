@@ -1,16 +1,18 @@
 {
   "EQUIPOS": {
-    "TITLE": "Ingrese a su cuenta",
-    "EMAIL": "Email",
-    "PASSWORD": "Password",
-    "REMEMBER_ME": "No cerrar sesión",
-    "FORGOT_PASSWORD": "¿Recordar contraseña?",
-    "LOG_IN": "Ingresar",
-    "CREATE_ACCOUNT": "Crea una cuenta",
+    "TITLE": "Ingreso de Equipos",
+    "SUBTITLE": "Ingresar Equipos/Servicios",
+    "TIPO": "Password",
+    "MARCA": "Marca del equipo",
+    "MODELO": "¿Recordar contraseña?",
+    "FECHA DE COMPRA": "Ingresar",
+    "SERIAL": "Crea una cuenta",
+    "DESCRIPCION": "Crea una cuenta",
     "ERRORS": {
-      "EMAIL_REQUIRED": "El campo correo es necesario",
+      "NOMBRE_REQUIRED": "El campo correo es necesario",
       "EMAIL_MUST_VALID": "El correo debe ser una dirección de correo electrónico válida",
-      "PASSWORD_REQUIRED": "El campo contraseña es requerido"
+      "MARCA_REQUIRED": "El campo marca es necesario"
+      "MODELO_REQUIRED": "El campo modelo es necesario"
     }
   }
 }

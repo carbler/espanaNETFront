@@ -17,8 +17,10 @@
     {
         var vm = this;
         vm.credenciales = {};
-
-
+        vm.Equipos = [
+            {"idEquipo": 1, "nombreEquipo": "Video Beasm"},
+            {"idEquipo": 2, "nombreEquipo": "Luces"}
+        ]
 
     }
 })();

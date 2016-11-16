@@ -1,0 +1,28 @@
+{
+    "REGISTRO": {
+        "TITLE": "Crea una cuenta",
+        "USERNAME": "Usuario",
+        "FIRSTNAME": "Nombres",
+        "LASTNAME": "Apellidos",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "PASSWORD_CONFIRM": "Confirmar Password",
+        "ROLE": "Cliente",
+        "READ_ACCEPT": "Leo y Acepto",
+        "TERMS_COND": "Terminos y Condiciones",
+        "CREATE_ACCOUNT": "REGISTRAR",
+        "ALREADY_HAVE": "¿Ya tienes una cuenta?",
+        "LOGIN": "Ingresar",
+        "ERRORS": {
+            "USERNAME_REQUIRED": "El campo usuario es necesario",
+            "FIRSTNAME_REQUIRED": "El campo nombres es necesario",
+            "LASTNAME_REQUIRED": "El campo apellidos es necesario",
+            "EMAIL_REQUIRED": "El campo correo es necesario",
+            "EMAIL_MUST_VALID": "El correo debe ser una dirección de correo electrónico válida",
+            "PASSWORD_REQUIRED": "El campo contraseña es necesario",
+            "PASSWORD_CONFIRM_REQUIRED": "El campo confirmar contraseña es necesario",
+            "ROLE_REQUIRED": "El campo Rol es necesario",
+            "TERMS_REQUIRED": "Debe de aceptar Terminos y Condiciones"
+        }
+    }
+}

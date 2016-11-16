@@ -3,13 +3,7 @@
     <!-- HEADER -->
     <div class="header md-accent-bg" layout="row" layout-align="space-between">
         <div layout="column" layout-align="space-between">
-            <div class="breadcrumb" layout="row" layout-align="start center">
-                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
-                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
-                <span class="parent">USER INTERFACE</span>
-            </div>
-
-            <div class="title">Ingreso de Equipos</div>
+            <div class="title" translate="EQUIPOS.TITLE"></div>
         </div>
     </div>
     <!-- / HEADER -->
@@ -17,64 +11,90 @@
     <!-- CONTENT -->
     <div class="content" layout="column">
 
-        <div class="md-title">Ingresar Equipos/Servicios</div>
-        <div class="pb-16">
-            A continuación Ingrese los equipos con su respectiva información
+        <div class="md-title"></div>
+
+        <!--<div class="mv-24"></div> -->
+
+        <!-- BASIC FORM -->
+        <div class="form-wrapper md-whiteframe-1dp" flex="60">
+
+            <form name="basicForm" class="md-inline-form" novalidate>
+
+                <div class="form-title" translate="EQUIPOS.SUBTITLE">Ingresar Equipos/Servicios</div>
+                <div class="pb-16">
+                    A continuación ingrese los equipos con su respectiva información
+                </div>
+
+                <div layout="column" layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label>Tipo de Equipo</label>
+                        <md-select ng-model="vm.Equipo">
+                            <md-option ng-repeat="item in vm.Equipos" value="{{item.idEquipo}}">
+                                {{item.nombreEquipo}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container flex>
+                        <input type="text" name="marca" ng-model="vm.basicForm.marca"
+                               placeholder="Marca"
+                               required>
+                        <div ng-messages="basicForm.marca.$error" role="alert">
+                            <div ng-message="required">
+                                <span translate="EQUIPOS.ERRORS.MARCA_REQUIRED">El campo marca es necesario</span>
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div layout="column" layout-gt-xs="row">
+                    <md-input-container flex>
+                        <input type="text" name="modelo" ng-model="vm.basicForm.modelo" placeholder="Modelo"
+                               required>
+                        <div ng-messages="basicForm.modelo.$error"
+                             role="alert">
+                            <div ng-message="required">
+                                <span translate="EQUIPOS.ERRORS.MODELO_REQUIRED">El campo modelo es necesario</span>
+                            </div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container flex>
+                        <label>Serial</label>
+                        <input type="text" name="serial" ng-model="vm.basicForm.serial">
+                    </md-input-container>
+                </div>
+
+                <div layout="column" layout-gt-xs="row">
+                    <md-input-container flex>
+                        <label>Fecha de Compra</label>
+                        <input type="date" name="date" ng-model="vm.basicForm.date" placeholder="01/10/2016">
+                        <div ng-messages="basicForm.date.$error" role="alert" multiple>
+                            <div ng-message="required"><span>You must supply a postal code.</span></div>
+                            <div ng-message="pattern"><span>That doesn't look like a valid postal code.</span></div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container flex>
+
+                    </md-input-container>
+
+
+                </div>
+
+                <md-input-container class="md-block">
+                    <label>Descripción</label>
+                    <textarea ng-model="vm.basicForm.biography" md-maxlength="150" max-rows="5"></textarea>
+                </md-input-container>
+
+                <md-button type="submit" class="md-raised md-accent" aria-label="Submit"
+                           ng-disabled="basicForm.$invalid || basicForm.$pristine">
+                    Ingresar
+                </md-button>
+            </form>
+
         </div>
-
-        <!-- HORIZONTAL STEPPER -->
-        <form name="horizontalStepper" ms-horizontal-stepper ng-submit="vm.submitHorizontalStepper()"
-              ng-model="vm.horizontalStepper" novalidate>
-            <ms-horizontal-stepper-step ng-form="horizontalStep1" step="1" step-title="'Información del Equipo'">
-                <div ng-include="'app/main/equipos/stepper-steps/horizontal/step-1.html'"></div>
-            </ms-horizontal-stepper-step>
-
-           <!-- <ms-horizontal-stepper-step ng-form="horizontalStep2" step="2" step-title="'Birthplace'" optional-step
-                                        hide-step="!vm.horizontalStepper.step1.lastname">
-                <div ng-include="'app/main/equipos/stepper-steps/horizontal/step-2.html'"></div>
-            </ms-horizontal-stepper-step>
-
-            <ms-horizontal-stepper-step ng-form="horizontalStep3" step="3" step-title="'SSN'" optional-step
-                                        hide-step="!vm.horizontalStepper.step2.birthplace">
-                <div ng-include="'app/main/equipos/stepper-steps/horizontal/step-3.html'"></div>
-            </ms-horizontal-stepper-step>
-
-            <ms-horizontal-stepper-step ng-form="horizontalStep4" step="4" step-title="'Address'" optional-step>
-                <div ng-include="'app/main/ui/forms/stepper-steps/horizontal/step-4.html'"></div>
-            </ms-horizontal-stepper-step>
-
-            <ms-horizontal-stepper-step ng-form="horizontalStep5" step="5" step-title="'Payment Method'">
-                <div ng-include="'app/main/ui/forms/stepper-steps/horizontal/step-5.html'"></div>
-            </ms-horizontal-stepper-step> -->
-
-        </form>
-        <!-- / HORIZONTAL STEPPER -->
-
-        <div class="mv-24"></div>
-
-
-
-        <div class="md-title mt-32">Form Wizard</div>
-        <div class="pb-16">
-            Form wizard is a combination of md-tabs and forms that we have created for you. You can have as many steps
-            as you want.
-        </div>
-        <div layout="row">
-
-
-        </div>
-
-        <div class="md-title mt-32">Basic form with validation</div>
-        <div class="pb-16">With this form example, Submit button will only be activated if all the required fields are
-            filled and if there is no error on the form.
-        </div>
-        <div layout="row">
-
-
-
-
-        </div>
-
+        <!-- / BASIC FORM -->
     </div>
     <!-- / CONTENT -->
 

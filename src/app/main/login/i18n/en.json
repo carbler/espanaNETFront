@@ -10,7 +10,7 @@
         "ERRORS": {
             "EMAIL_REQUIRED": "El campo correo es necesario",
             "EMAIL_MUST_VALID": "El correo debe ser una dirección de correo electrónico válida",
-            "PASSWORD_REQUIRED": "El campo contraseña es requerido"
+            "PASSWORD_REQUIRED": "El campo contraseña es necesario"
         }
     }
 }
