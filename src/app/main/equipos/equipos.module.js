@@ -29,8 +29,8 @@
 
         // Navigation
         msNavigationServiceProvider.saveItem('equipos', {
-            title : 'Equipos',
-            icon  : 'icon-calendar-today',
+            title : 'Registro Equipos',
+            icon  : 'icon-laptop',
             state : 'app.equipos',
             weight: 2
         });

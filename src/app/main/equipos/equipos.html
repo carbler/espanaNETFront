@@ -3,7 +3,7 @@
     <!-- HEADER -->
     <div class="header md-accent-bg" layout="row" layout-align="space-between">
         <div layout="column" layout-align="space-between">
-            <div class="title" translate="EQUIPOS.TITLE"></div>
+            <div class="title" translate="EQUIPOS.TITLE">Ingreso de Equipos</div>
         </div>
     </div>
     <!-- / HEADER -->
@@ -27,8 +27,8 @@
 
                 <div layout="column" layout-gt-sm="row">
                     <md-input-container flex>
-                        <label>Tipo de Equipo</label>
-                        <md-select ng-model="vm.Equipo">
+                        <label translate="EQUIPOS.TIPO">Tipo de Equipo</label>
+                        <md-select ng-model="vm.credenciales.Tipo">
                             <md-option ng-repeat="item in vm.Equipos" value="{{item.idEquipo}}">
                                 {{item.nombreEquipo}}
                             </md-option>
@@ -36,8 +36,8 @@
                     </md-input-container>
 
                     <md-input-container flex>
-                        <input type="text" name="marca" ng-model="vm.basicForm.marca"
-                               placeholder="Marca"
+                        <input type="text" name="marca" ng-model="vm.credenciales.Marca"
+                               placeholder="Marca" translate-attr-placeholder="EQUIPOS.MARCA"
                                required>
                         <div ng-messages="basicForm.marca.$error" role="alert">
                             <div ng-message="required">
@@ -49,8 +49,8 @@
 
                 <div layout="column" layout-gt-xs="row">
                     <md-input-container flex>
-                        <input type="text" name="modelo" ng-model="vm.basicForm.modelo" placeholder="Modelo"
-                               required>
+                        <input type="text" name="modelo" ng-model="vm.credenciales.Modelo" placeholder="Modelo"
+                               translate-attr-placeholder="EQUIPOS.MODELO" required>
                         <div ng-messages="basicForm.modelo.$error"
                              role="alert">
                             <div ng-message="required">
@@ -60,19 +60,15 @@
                     </md-input-container>
 
                     <md-input-container flex>
-                        <label>Serial</label>
-                        <input type="text" name="serial" ng-model="vm.basicForm.serial">
+                        <label translate="EQUIPOS.SERIAL">Serial</label>
+                        <input type="text" name="serial" ng-model="vm.credenciales.Serial">
                     </md-input-container>
                 </div>
 
                 <div layout="column" layout-gt-xs="row">
                     <md-input-container flex>
-                        <label>Fecha de Compra</label>
-                        <input type="date" name="date" ng-model="vm.basicForm.date" placeholder="01/10/2016">
-                        <div ng-messages="basicForm.date.$error" role="alert" multiple>
-                            <div ng-message="required"><span>You must supply a postal code.</span></div>
-                            <div ng-message="pattern"><span>That doesn't look like a valid postal code.</span></div>
-                        </div>
+                        <label translate="EQUIPOS.DATE">Fecha de Compra</label>
+                        <input type="date" name="date" ng-model="vm.credenciales.FechaCompra" placeholder="01/10/2016">
                     </md-input-container>
 
                     <md-input-container flex>
@@ -84,11 +80,11 @@
 
                 <md-input-container class="md-block">
                     <label>Descripción</label>
-                    <textarea ng-model="vm.basicForm.biography" md-maxlength="150" max-rows="5"></textarea>
+                    <textarea ng-model="vm.credenciales.Descripcion" md-maxlength="150" max-rows="5"></textarea>
                 </md-input-container>
 
                 <md-button type="submit" class="md-raised md-accent" aria-label="Submit"
-                           ng-disabled="basicForm.$invalid || basicForm.$pristine">
+                           ng-disabled="basicForm.$invalid || basicForm.$pristine" ng-click="vm.createEquipo()">
                     Ingresar
                 </md-button>
             </form>

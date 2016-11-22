@@ -39,7 +39,7 @@
         // Navigation
         msNavigationServiceProvider.saveItem('registro', {
             title : 'Registro',
-            icon : 'icon-lock',
+            icon : 'icon-person-plus',
             state : 'app.registro',
             weight: 3
         });

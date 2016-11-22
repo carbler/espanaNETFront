@@ -25,6 +25,7 @@
             'app.alquiler',
             'app.dialog',
             'app.equipos',
-            'app.registro'
+            'app.registro',
+            'app.registroDocentes'
         ]);
 })();
