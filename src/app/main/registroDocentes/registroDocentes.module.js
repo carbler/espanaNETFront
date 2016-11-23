@@ -32,7 +32,7 @@
             title : 'Registro Docentes',
             icon  : 'icon-human-male-female',
             state : 'app.registroDocentes',
-            weight: 4
+            weight: 5
         });
 
     }

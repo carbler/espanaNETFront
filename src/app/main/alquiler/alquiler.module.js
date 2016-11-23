@@ -34,7 +34,7 @@
             title : 'Alquiler',
             icon  : 'icon-calendar-today',
             state : 'app.alquiler',
-            weight: 2
+            weight: 1
         });
     }
 })();

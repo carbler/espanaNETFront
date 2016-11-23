@@ -32,7 +32,7 @@
             title : 'Registro Equipos',
             icon  : 'icon-laptop',
             state : 'app.equipos',
-            weight: 2
+            weight: 3
         });
 
     }

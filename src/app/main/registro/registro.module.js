@@ -41,7 +41,7 @@
             title : 'Registro',
             icon : 'icon-person-plus',
             state : 'app.registro',
-            weight: 3
+            weight: 4
         });
     }
 
