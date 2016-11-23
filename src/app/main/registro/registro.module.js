@@ -36,13 +36,15 @@
         // Translation
         $translatePartialLoaderProvider.addPart('app/main/registro');
 
-        // Navigation
-        msNavigationServiceProvider.saveItem('registro', {
-            title : 'Registro',
-            icon : 'icon-person-plus',
-            state : 'app.registro',
-            weight: 4
-        });
+         if(user._getNombreRol()=="SuperAdmin"){
+             // Navigation
+             msNavigationServiceProvider.saveItem('registro', {
+                 title : 'Registro',
+                 icon : 'icon-person-plus',
+                 state : 'app.registro',
+                 weight: 4
+             });
+         }
     }
 
 })();

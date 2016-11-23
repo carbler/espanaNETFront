@@ -22,6 +22,7 @@
                     var p = LoginService.login(vm.credenciales);
                     user._setToken(datos.access_token);
                     user._setUsername(vm.credenciales.username);
+
                     GetUser();
                     DialogFactory.ShowSimpleToast("Conectado...");
                     $state.go('app.alquiler', {});
@@ -40,7 +41,8 @@
                     var respuesta = data.data;
                     user._setNombreCompleto(respuesta.fullName);
                     user._setIdUsuario(respuesta.id);
-                    console.log(respuesta);
+                    user._setNombreRol(respuesta.roles[0]);
+                    //console.log(respuesta);
                 },
                 function (err) {
                     console.log(JSON.stringify(err));

@@ -9,9 +9,9 @@
 
             <form name="loginForm" novalidate>
                 <md-input-container class="md-block" md-no-float>
-                    <input type="text" name="email" ng-model="vm.credenciales.username" placeholder="Email"
+                    <input type="text" name="email" ng-model="vm.credenciales.username" placeholder="Nombre de usuario"
                            translate translate-attr-placeholder="LOGIN.EMAIL"
-                           ng-pattern="/^.+@.+\..+$/" required>
+                           required>
                     <div ng-messages="loginForm.email.$error" role="alert" multiple>
                         <div ng-message="required">
                             <span translate="REGISTRO.ERRORS.EMAIL_REQUIRED">El campo correo es necesario</span>

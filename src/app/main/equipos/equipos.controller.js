@@ -24,6 +24,7 @@
 
                     DialogFactory.ShowSimpleToast("Conectado...");
                     $state.go('app.alquiler', {});
+
                 },
                 function (error) {
                     DialogFactory.ShowSimpleToast(error.error_description);
