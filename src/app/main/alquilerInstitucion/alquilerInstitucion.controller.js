@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('app.alquilerInstitucion', ['ngMaterial'])
+        .module('app.alquilerInstitucion')
         .controller('alquilerInstitucionController', alquilerInstitucionController);
 
     /** @ngInject */
