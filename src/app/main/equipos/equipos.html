@@ -68,20 +68,19 @@
                 <div layout="column" layout-gt-xs="row">
                     <md-input-container flex>
                         <label translate="EQUIPOS.DATE">Fecha de Compra</label>
-                        <input type="date" name="date" ng-model="vm.credenciales.FechaCompra" placeholder="01/10/2016">
+                        <md-datepicker ng-model="vm.credenciales.FechaCompra"></md-datepicker>
+                    </md-input-container>
+
+                    <md-input-container>
+
                     </md-input-container>
 
                     <md-input-container flex>
-
+                        <label>Descripción</label>
+                        <textarea ng-model="vm.credenciales.Descripcion" md-maxlength="150" max-rows="5"></textarea>
                     </md-input-container>
 
-
                 </div>
-
-                <md-input-container class="md-block">
-                    <label>Descripción</label>
-                    <textarea ng-model="vm.credenciales.Descripcion" md-maxlength="150" max-rows="5"></textarea>
-                </md-input-container>
 
                 <md-button type="submit" class="md-raised md-accent" aria-label="Submit"
                            ng-disabled="basicForm.$invalid || basicForm.$pristine" ng-click="vm.createEquipo()">

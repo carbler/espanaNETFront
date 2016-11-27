@@ -6,7 +6,7 @@
         .controller('EventFormDialogController', EventFormDialogController);
 
     /** @ngInject */
-    function EventFormDialogController($mdDialog, dialogData)
+    function EventFormDialogController($mdDialog, dialogData, $timeout, $q)
     {
         var vm = this;
 
@@ -18,78 +18,6 @@
         vm.saveEvent = saveEvent;
         vm.removeEvent = removeEvent;
         vm.closeDialog = closeDialog;
-        /**
-         *
-         * Chip Equipos
-         */
-        vm.readonly = false;
-        vm.selectedItem = null;
-        vm.searchText = null;
-        vm.querySearch = querySearch;
-        vm.vegetables = loadVegetables();
-        vm.selectedVegetables = [];
-        vm.numberChips = [];
-        vm.numberChips2 = [];
-        vm.numberBuffer = '';
-        vm.autocompleteDemoRequireMatch = true;
-        vm.transformChip = transformChip;
-
-        /**
-         * Return the proper object when the append is called.
-         */
-        function transformChip(chip) {
-            // If it is an object, it's already a known chip
-            if (angular.isObject(chip)) {
-                return chip;
-            }
-
-            // Otherwise, create a new one
-            return { name: chip, type: 'new' }
-        }
-
-        /**
-         * Search for vegetables.
-         */
-        function querySearch (query) {
-            var results = query ? vm.vegetables.filter(createFilterFor(query)) : [];
-            return results;
-        }
-
-        /**
-         * Create filter function for a query string
-         */
-        function createFilterFor(query) {
-            var lowercaseQuery = angular.lowercase(query);
-
-            return function filterFn(vegetable) {
-                return (vegetable._lowername.indexOf(lowercaseQuery) === 0) ||
-                    (vegetable._lowertype.indexOf(lowercaseQuery) === 0);
-            };
-
-        }
-
-        function loadVegetables() {
-            var veggies = [
-                {
-                    'name': 'Proyector',
-                    'type': 'Epson'
-                },
-                {
-                    'name': 'Luces',
-                    'type': 'LED'
-                },
-                {
-                    'name': 'Sonido',
-                    'type': 'QHD'
-                }
-            ];
-
-            return veggies.map(function (veg) {
-                veg._lowername = veg.name.toLowerCase();
-                veg._lowertype = veg.type.toLowerCase();
-                return veg;
-            });
-        }
 
         init();
 
@@ -193,6 +121,79 @@
         function closeDialog()
         {
             $mdDialog.cancel();
+        }
+
+        /**
+         *
+         * Chip Equipos
+         */
+        vm.readonly = false;
+        vm.selectedItem = null;
+        vm.searchText = null;
+        vm.querySearch = querySearch;
+        vm.vegetables = loadVegetables();
+        vm.selectedVegetables = [];
+        vm.numberChips = [];
+        vm.numberChips2 = [];
+        vm.numberBuffer = '';
+        vm.autocompleteDemoRequireMatch = true;
+        vm.transformChip = transformChip;
+
+        /**
+         * Return the proper object when the append is called.
+         */
+        function transformChip(chip) {
+            // If it is an object, it's already a known chip
+            if (angular.isObject(chip)) {
+                return chip;
+            }
+
+            // Otherwise, create a new one
+            return { name: chip, type: 'new' }
+        }
+
+        /**
+         * Search for vegetables.
+         */
+        function querySearch (query) {
+            var results = query ? vm.vegetables.filter(createFilterFor(query)) : [];
+            return results;
+        }
+
+        /**
+         * Create filter function for a query string
+         */
+        function createFilterFor(query) {
+            var lowercaseQuery = angular.lowercase(query);
+
+            return function filterFn(vegetable) {
+                return (vegetable._lowername.indexOf(lowercaseQuery) === 0) ||
+                    (vegetable._lowertype.indexOf(lowercaseQuery) === 0);
+            };
+
+        }
+
+        function loadVegetables() {
+            var veggies = [
+                {
+                    'name': 'Proyector',
+                    'type': 'Epson'
+                },
+                {
+                    'name': 'Luces',
+                    'type': 'LED'
+                },
+                {
+                    'name': 'Sonido',
+                    'type': 'QHD'
+                }
+            ];
+
+            return veggies.map(function (veg) {
+                veg._lowername = veg.name.toLowerCase();
+                veg._lowertype = veg.type.toLowerCase();
+                return veg;
+            });
         }
     }
 })();

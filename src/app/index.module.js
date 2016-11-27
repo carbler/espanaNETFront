@@ -21,6 +21,7 @@
             'app.quick-panel',
 
             // Sample
+            'app.index',
             'app.login',
             'app.alquiler',
             'app.dialog',
@@ -28,5 +29,6 @@
             'app.registro',
             'app.registroDocentes',
             'app.alquilerInstitucion'
+
         ]);
 })();

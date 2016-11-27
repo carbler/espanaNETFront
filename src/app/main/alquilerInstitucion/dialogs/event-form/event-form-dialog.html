@@ -4,7 +4,7 @@
             <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
                 <span class="title">{{vm.dialogTitle}}</span>
                 <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close dialog" translate
-                           translate-attr-aria-label="CALENDAR.CLOSE_DIALOG">
+                           translate-attr-aria-label="CALENDARINSTITUTION.CLOSE_DIALOG">
                     <md-icon md-font-icon="icon-close"></md-icon>
                 </md-button>
             </div>
@@ -16,7 +16,7 @@
 
                 <md-input-container class="no-errors-spacer" flex md-no-float>
                     <input ng-model="vm.calendarEvent.startTime" placeholder="Start Time" translate
-                           translate-attr-placeholder="CALENDAR.START_TIME">
+                           translate-attr-placeholder="CALENDARINSTITUTION.START_TIME">
                 </md-input-container>
             </div>
 
@@ -25,54 +25,63 @@
 
                 <md-input-container class="no-errors-spacer" flex md-no-float>
                     <input ng-model="vm.calendarEvent.endTime" placeholder="End Time" translate
-                           translate-attr-placeholder="CALENDAR.END_TIME">
+                           translate-attr-placeholder="CALENDARINSTITUTION.END_TIME">
                 </md-input-container>
             </div>
 
             <md-input-container class="md-block" flex>
-                <label translate="CALENDAR.LOCATION">Location</label>
+                <label translate="CALENDARINSTITUTION.LOCATION">Ubicacion</label>
                 <input ng-model="vm.calendarEvent.location">
             </md-input-container>
             <md-input-container class="md-block" flex>
-                <label translate="CALENDAR.DOCENTE">Docente</label>
+                <label translate="CALENDARINSTITUTION.DOCENTE">Docente</label>
                 <input ng-model="vm.calendarEvent.docente">
             </md-input-container>
 
-            <md-chips ng-model="vm.calendarEvent.equipos" md-autocomplete-snap
-                      md-transform-chip="vm.transformChip($chip)"
-                      md-require-match="vm.autocompleteDemoRequireMatch">
-                <md-autocomplete
-                        md-selected-item="vm.selectedItem"
-                        md-search-text="vm.searchText"
-                        md-items="item in vm.querySearch(vm.searchText)"
-                        md-item-text="item.name"
-                        placeholder="Agregar un servicio">
-                    <span md-highlight-text="vm.searchText">{{item.name}} :: {{item.type}}</span>
-                </md-autocomplete>
-                <md-chip-template>
-                    <span>
-                      <strong>{{$chip.name}}</strong>
-                      <em>({{$chip.type}})</em>
-                    </span>
-                </md-chip-template>
-            </md-chips>
+            <!-- Inicio del Chip  -->
+            <md-input-container class="md-block">
+                <label>Buscar servicios</label>
+                <md-chips ng-model="vm.calendarEvent.equipos" md-autocomplete-snap
+                          md-transform-chip="vm.transformChip($chip)"
+                          md-require-match="vm.autocompleteDemoRequireMatch">
+                    <md-autocomplete
+                            md-selected-item="vm.selectedItem"
+                            md-search-text="vm.searchText"
+                            md-items="item in vm.querySearch(vm.searchText)"
+                            md-item-text="item.name"
+                            placeholder="Agregar un servicio">
+                        <span md-highlight-text="searchText">{{item.name}} :: {{item.type}}</span>
+                    </md-autocomplete>
+                    <md-chip-template>
+                        <span>
+                          <strong>{{$chip.name}}</strong>
+                          <em>({{$chip.type}})</em>
+                        </span>
+                    </md-chip-template>
+                </md-chips>
+            </md-input-container>
+
+            <!-- Fin Chip -->
+
             <md-input-container flex class="md-block textarea-container">
-                <label translate="CALENDAR.NOTES">Notes</label>
+                <label translate="CALENDARINSTITUTION.NOTES">Notas</label>
                 <textarea ng-model="vm.task.notes" md-maxlength="250" max-rows="4"></textarea>
             </md-input-container>
         </md-dialog-content>
+
+
 
         <md-dialog-actions layout="row" layout-align="space-between center">
             <md-button ng-click="vm.saveEvent()" class="save-button md-accent md-raised" aria-label="SAVE"
                        ng-disabled="eventForm.$invalid || eventForm.$pristine"
                        translate="CALENDAR.SAVE"
                        translate-attr-aria-label="CALENDAR.SAVE">
-                SAVE
+                Guardar
             </md-button>
 
             <md-button class="md-icon-button" ng-click="vm.removeEvent()" aria-label="Delete" translate translate-attr-aria-label="CALENDAR.DELETE">
                 <md-icon md-font-icon="icon-delete"></md-icon>
-                <md-tooltip><span translate="CALENDAR.DELETE">Delete</span></md-tooltip>
+                <md-tooltip><span translate="CALENDARINSTITUTION.DELETE">Eliminar</span></md-tooltip>
             </md-button>
         </md-dialog-actions>
     </form>
