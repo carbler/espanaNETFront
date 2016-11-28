@@ -13,9 +13,10 @@
     function LoginController(LoginService,$state,DialogFactory, AlquilerService)
     {
 
-       if(user._getNombreRol()!=undefined){
-           $state.go('app.index', {});
-       }
+        if(LoginService.verificarSesion()){
+           // event.preventDefault();
+            $state.go('app.index', {});
+        }
 
         var vm = this;
         vm.credenciales = {};

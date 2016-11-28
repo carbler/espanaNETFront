@@ -22,7 +22,7 @@
                 function (datos) {
 
                     DialogFactory.ShowSimpleToast("Usuario Registrado Exitosamente");
-                    $state.go('app.alquiler', {});
+                    $state.go('app.index', {});
                 //    $state.go('app.registro', {});
                 },
                 function (error) {

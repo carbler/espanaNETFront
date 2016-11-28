@@ -30,7 +30,6 @@
             data: {
                 permissions: {
                     only: ['SuperAdmin']
-
                 }
             },
             bodyClass: 'registro'
@@ -39,7 +38,7 @@
         // Translation
         $translatePartialLoaderProvider.addPart('app/main/registro');
 
-         if(user._getNombreRol()=="SuperAdmin"){
+
              // Navigation
              msNavigationServiceProvider.saveItem('registro', {
                  title : 'Registro',
@@ -47,7 +46,7 @@
                  state : 'app.registro',
                  weight: 4
              });
-         }
+
     }
 
 })();

@@ -19,6 +19,114 @@
         vm.removeEvent = removeEvent;
         vm.closeDialog = closeDialog;
 
+        /** CHIP **/
+        vm.readonly = false;
+        vm.selectedItem = null;
+        vm.searchText = null;
+        vm.querySearch = querySearch;
+        vm.vegetables = loadVegetables();
+        vm.selectedVegetables = [];
+        vm.numberChips = [];
+        vm.numberChips2 = [];
+        vm.numberBuffer = '';
+        vm.autocompleteDemoRequireMatch = true;
+        vm.transformChip = transformChip;
+
+        /**
+         * Return the proper object when the append is called.
+         */
+        function transformChip(chip) {
+            // If it is an object, it's already a known chip
+            console.log(chip);
+           if (angular.isObject(chip)) {
+                return chip;
+              // return { name: chip, type: 'new' }
+            }
+
+            // Otherwise, create a new one
+            return { name: chip, type: 'new' }
+        }
+
+        /**
+         * Search for vegetables.
+         */
+        function querySearch (query) {
+            var results = query ? vm.vegetables.filter(createFilterFor(query)) : [];
+            return results;
+        }
+
+        /**
+         * Create filter function for a query string
+         */
+        function createFilterFor(query) {
+            var lowercaseQuery = angular.lowercase(query);
+
+            return function filterFn(vegetable) {
+                return (vegetable._lowername.indexOf(lowercaseQuery) === 0) ||
+                    (vegetable._lowertype.indexOf(lowercaseQuery) === 0);
+            };
+
+        }
+
+        function loadVegetables() {
+            var veggies = [
+                {
+                    'name': 'Proyector',
+                    'type': '1'
+                },
+                {
+                    'name': 'Proyector',
+                    'type': '2'
+                },
+                {
+                    'name': 'Proyector',
+                    'type': '3'
+                },
+                {
+                    'name': 'Proyector',
+                    'type': '4'
+                },
+                {
+                    'name': 'Luces',
+                    'type': '1'
+                },
+                {
+                    'name': 'Luces',
+                    'type': '2'
+                },
+                {
+                    'name': 'Luces',
+                    'type': '3'
+                },
+                {
+                    'name': 'Luces',
+                    'type': '4'
+                },
+                {
+                    'name': 'Sonido',
+                    'type': '1'
+                },
+                {
+                    'name': 'Sonido',
+                    'type': '2'
+                },
+                {
+                    'name': 'Sonido',
+                    'type': '3'
+                },
+                {
+                    'name': 'Sonido',
+                    'type': '4'
+                }
+            ];
+
+            return veggies.map(function (veg) {
+                veg._lowername = veg.name.toLowerCase();
+                veg._lowertype = veg.type.toLowerCase();
+                return veg;
+            });
+        }
+
         init();
 
         //////////
@@ -59,6 +167,7 @@
                 if ( moment.isMoment(vm.calendarEvent.end) )
                 {
                     vm.calendarEvent.end = vm.calendarEvent.end.toDate();
+                    vm.calendarEvent.end.set
                 }
             }
             // Add
