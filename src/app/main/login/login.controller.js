@@ -13,7 +13,9 @@
     function LoginController(LoginService,$state,DialogFactory, AlquilerService)
     {
 
-
+       if(user._getNombreRol()!=undefined){
+           $state.go('app.index', {});
+       }
 
         var vm = this;
         vm.credenciales = {};
@@ -24,13 +26,9 @@
                     var p = LoginService.login(vm.credenciales);
                     user._setToken(datos.access_token);
                     user._setUsername(vm.credenciales.username);
-
                     GetUser();
-                    if(user._getNombreRol()=="SuperAdmin"){
-                        $state.go('app.equipos', {});
-                    }else {
-                        $state.go('app.alquiler', {});
-                    }
+
+
                 },
                 function (error) {
                     DialogFactory.ShowSimpleToast(error.error_description);
@@ -49,6 +47,14 @@
                     user._setNombreRol(respuesta.roles[0]);
                     //console.log(respuesta);
                     DialogFactory.ShowSimpleToast("Conectado...");
+                    console.log(user._getNombreRol());
+
+
+                    if(user._getNombreRol()=="SuperAdmin"){
+                        $state.go('app.equipos', {});
+                    }else{
+                        $state.go('app.alquiler', {});
+                    }
 
                 },
                 function (err) {

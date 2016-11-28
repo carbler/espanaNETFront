@@ -24,6 +24,12 @@
                     controller : 'indexController as vm'
                 }
             },
+            data: {
+                permissions: {
+                    only: ['SuperAdmin','Institucion']
+
+                }
+            },
             bodyClass: 'index'
         });
 
