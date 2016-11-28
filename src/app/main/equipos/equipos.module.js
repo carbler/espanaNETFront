@@ -19,15 +19,15 @@
                 'content@app': {
                     templateUrl: 'app/main/equipos/equipos.html',
                     controller : 'equiposController as vm'
-                },
-                data: {
-                    permissions: {
-                        only: ['Admin']
-                    }
+                }
+            },
+            data: {
+                permissions: {
+                    only: ['SuperAdmin']
                 }
             },
             bodyClass: 'equipos'
-        });
+        })//mire para que lo haga a todos los modulos ok
 
         // Translation
         $translatePartialLoaderProvider.addPart('app/main/equipos');

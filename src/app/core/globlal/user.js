@@ -1,7 +1,7 @@
 /**
  * Created by Erley on 10/11/2016.
  */
-/**
+/** pere un momentico OK
  * Created by Ing. Adrian Vergara on 6/11/2016.
  */
 var user = {

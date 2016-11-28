@@ -23,6 +23,12 @@
                     controller : 'alquilerController as vm'
                 }
             },
+            data: {
+                permissions: {
+                    only: ['Institucion']
+
+                }
+            },
             bodyClass: 'alquiler'
         });
 

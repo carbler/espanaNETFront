@@ -26,6 +26,14 @@
                     templateUrl: 'app/main/alquilerInstitucion/alquilerInstitucion.html',
                     controller : 'alquilerInstitucionController as vm'
                 }
+
+
+            },
+            data: {
+                permissions: {
+                    only: ['Institucion']
+
+                }
             },
             bodyClass: 'alquilerInstitucion'
         });

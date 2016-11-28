@@ -11,7 +11,7 @@
 
     /* @ngInject */
     function run($rootScope, $state, PermRoleStore, LoginService, DialogFactory) {
-        var roles = ['Admin', 'Institucion', 'Invitado'];
+        var roles = ['SuperAdmin', 'Institucion', 'Invitado'];
 
         angular.forEach(roles, function (rol) {
             PermRoleStore.defineRole(rol, function (nombreRol, stateParams) {
@@ -20,8 +20,12 @@
         });
 
         function accesoDenegado() {
-            //alert('No puedes acceder aqui');
+            //ud no cambip mas nada aca_?
+           // alert('No puedes acceder aqui');
+
+            //lo que pasa es que yo retorno en mi aplicacion aca a un state 401 con una pagina que dice el error y desde halla en un boton retorno a la vista principal con un boton inicio
             DialogFactory.AlertDialog('Error', 'AccesoDenegado');
+            $state.go('app.index');
             //state a pagina 401 odio cuando no dice la linea eacta :c jajaj
         }
 
@@ -36,10 +40,10 @@
             if(to.data && to.data.permissions){
                 //aca verificamos si realmente existe un usuario logeado
                 //sino exite retornamos a /login
-                //if(!LoginService.verificarSesion()){
+                if(!LoginService.verificarSesion()){
                     event.preventDefault();
-                    $state.go('app.login');
-                //}
+                   // console.log("Entro");
+                }
             }
         } )
     }

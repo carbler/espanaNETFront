@@ -21,6 +21,12 @@
                     controller : 'RegistroDocentesController as vm'
                 }
             },
+            data: {
+                permissions: {
+                    only: ['SuperAdmin']
+
+                }
+            },
             bodyClass: 'registroDocentes'
         });
 

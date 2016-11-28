@@ -8,6 +8,7 @@
 <ul class="horizontal">
     <li ng-repeat="node in vm.navigation" ms-navigation-horizontal-node="node"
         ng-class="{'has-children': vm.hasChildren}"
+        permission permission-sref="node.state"
         ng-include="'navigation-horizontal-nested.html'"></li>
 </ul>
 

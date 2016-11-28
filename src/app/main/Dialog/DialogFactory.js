@@ -18,6 +18,8 @@
                             .ariaLabel('Alert Dialog Demo')
                             .ok('Aceptar!')
                     );
+                    //mdDialog al parecer no funciona ya se como lo tiene o dentro del cambio de estate
+                    //alert('Acceso denegado');
                 },
                 ShowSimpleToast: function (message) {
                     $mdToast.show(

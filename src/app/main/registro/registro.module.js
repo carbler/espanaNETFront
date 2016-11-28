@@ -27,6 +27,12 @@
                     controller : 'RegistroController as vm'
                 }
             },
+            data: {
+                permissions: {
+                    only: ['SuperAdmin']
+
+                }
+            },
             bodyClass: 'registro'
         });
 

@@ -23,7 +23,7 @@
                 },
                 data: {
                     permissions: {
-                        only: ['Admin', 'SuperAdmin']
+                        only: ['Institucion']
                     }
                 }
             });

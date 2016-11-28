@@ -11,7 +11,14 @@
     {
         var vm = this;
 
-        vm.nombre = localStorage.nombreCompleto;
+
+        if(localStorage.nombreCompleto!=undefined){
+            vm.nombre = localStorage.nombreCompleto;
+        }else{
+            vm.nombre = "Invitado";
+        }
+
+
         // Data
         $rootScope.global = {
             search: ''
@@ -117,7 +124,8 @@
          */
         function logout()
         {
-            // Do logout here..
+            localStorage.clear();
+            $state.go('app.login', {});
         }
 
         /**

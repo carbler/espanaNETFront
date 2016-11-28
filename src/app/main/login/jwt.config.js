@@ -13,7 +13,7 @@
  getToken: getToken
  });
  /** @ngInject */
-/* function getToken(options, jwtHelper, ApiLogin) {
+/* function getToken(options, jwtHelper, LoginService) {
  var jwt = localStorage.getItem('jwt');
  if(jwt && options.url.indexOf(user._getUrl()) === 0){
  if(jwtHelper.isTokenExpiderd(jwt)){

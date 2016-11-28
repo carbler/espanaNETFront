@@ -27,8 +27,11 @@
         "30_MIN_BEFORE": "30 minutos antes",
         "15_MIN_BEFORE": "15 minutos antes",
         "30_MIN_LATER": "30 minutos después",
+        "NOMBRECLIENTE":"name",
+        "DIRECCION":"direccion",
+        "TELEFONO":"telefono",
         "ERRORS": {
-            "TITLE_REQUIRED": "El campo título es necesario"
+          "TITLE_REQUIRED": "El campo  es necesario"
         }
     }
 }

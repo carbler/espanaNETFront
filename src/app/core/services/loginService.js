@@ -7,7 +7,7 @@
     angular.module('app.login')
         .factory('LoginService', LoginService);
 
-        function LoginService($http, $q){
+        function LoginService($http, $q, PermRoleStore, jwtHelper){
             var url = "http://localhost:51466/";
             var authServiceFactory = {};
 
@@ -49,8 +49,8 @@
                 var darPermisos = false;
 
                 //verificamos si el permiso del usuario se encientra dentro de los definidps
-                if(PermRoleStore.hasRoleDefinition(ferre._getNombreRol())){
-                    if(nombreRol === ferre._getNombreRol()){
+                if(PermRoleStore.hasRoleDefinition(user._getNombreRol())){
+                    if(nombreRol === user._getNombreRol()){
                         darPermisos = true;
                     }
                 }

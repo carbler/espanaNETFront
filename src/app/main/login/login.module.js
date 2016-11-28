@@ -6,7 +6,12 @@
     'use strict';
 
     angular
-        .module('app.login', [])
+        .module('app.login', [
+            'permission',
+            'permission.ui',
+            'angular-jwt'
+
+        ])
         .config(config);
 
     /** @ngInject */

@@ -12,27 +12,32 @@
     /** @ngInject */
     function LoginController(LoginService,$state,DialogFactory, AlquilerService)
     {
+
+
+
         var vm = this;
         vm.credenciales = {};
         vm.Login = function () {
             var p = LoginService.login(vm.credenciales);
             p.then(
                 function (datos) {
-
                     var p = LoginService.login(vm.credenciales);
                     user._setToken(datos.access_token);
                     user._setUsername(vm.credenciales.username);
 
                     GetUser();
-                    DialogFactory.ShowSimpleToast("Conectado...");
-                    $state.go('app.alquiler', {});
+                    if(user._getNombreRol()=="SuperAdmin"){
+                        $state.go('app.equipos', {});
+                    }else {
+                        $state.go('app.alquiler', {});
+                    }
                 },
                 function (error) {
                     DialogFactory.ShowSimpleToast(error.error_description);
 
                 }
             )
-        };
+        }; // te quiero mucho come monda la ultima vez que te ayudo en este malparido proyecto, abre mi proyecto de ferremotos
 
         function GetUser() {
             var promiseGet = AlquilerService.GetUser();
@@ -43,6 +48,8 @@
                     user._setIdUsuario(respuesta.id);
                     user._setNombreRol(respuesta.roles[0]);
                     //console.log(respuesta);
+                    DialogFactory.ShowSimpleToast("Conectado...");
+
                 },
                 function (err) {
                     console.log(JSON.stringify(err));
