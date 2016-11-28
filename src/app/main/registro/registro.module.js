@@ -2,9 +2,6 @@
  * Created by EspañaNet on 15/11/2016.
  */
 
-/**
- * Created by EspañaNet on 15/11/2016.
- */
 
 (function ()
 {

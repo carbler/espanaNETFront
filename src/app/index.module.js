@@ -28,7 +28,8 @@
             'app.equipos',
             'app.registro',
             'app.registroDocentes',
-            'app.alquilerInstitucion'
+            'app.alquilerInstitucion',
+            'app.reporteDocentes'
 
         ]);
 })();

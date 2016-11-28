@@ -1,8 +1,8 @@
 {
     "INDEX": {
-        "TITLE": "Ingrese a su cuenta",
-        "EMAIL": "Email",
-        "PASSWORD": "Password",
+        "TITLE": "ESPAÑANET",
+        "MISION": "Mision",
+        "VISION": "Vision",
         "REMEMBER_ME": "No cerrar sesión",
         "FORGOT_PASSWORD": "¿Recordar contraseña?",
         "LOG_IN": "Ingresar",

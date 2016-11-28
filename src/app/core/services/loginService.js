@@ -44,6 +44,34 @@
                 });
             };
 
+            var darPermisos = function (nombreRol) {
+                var def = $q.defer();
+                var darPermisos = false;
+
+                //verificamos si el permiso del usuario se encientra dentro de los definidps
+                if(PermRoleStore.hasRoleDefinition(ferre._getNombreRol())){
+                    if(nombreRol === ferre._getNombreRol()){
+                        darPermisos = true;
+                    }
+                }
+
+                //si dar permisos = true resolvemos la promesa
+                if(darPermisos){
+                    def.resolve();
+                }else {
+                    def.reject();
+                }
+                return def.promise;
+            }
+
+            var verificarSesion = function () {
+                var jwt = user._getToken();
+                if(!jwt) return false; //Si no hay un token quiere decir que no hay una sesion iniciada, revolvemos false
+                if(jwtHelper.isTokenExpired(jwt)) return 'Expiro el token'; //verificamos que el token no este vencido
+                return true;
+            }
+
+
             /*
             var GetUser = function (getData) {
                var req = $http.get(url + 'api/accounts/user/' +  getData.userName + '?token=' + getData.token);
@@ -53,6 +81,8 @@
             */
             authServiceFactory.login = _login;
             authServiceFactory.GetUser = GetUser;
+            authServiceFactory.darPermisos = darPermisos;
+            authServiceFactory.verificarSesion = verificarSesion;
 
             return authServiceFactory;
 

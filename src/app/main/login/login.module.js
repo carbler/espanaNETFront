@@ -31,6 +31,13 @@
         // Translation
         $translatePartialLoaderProvider.addPart('app/main/login');
 
+        // Navigation
+        msNavigationServiceProvider.saveItem('login', {
+            title : 'Iniciar sesion',
+            icon : 'icon-login',
+            state : 'app.login',
+            weight: 4
+        });
 
     }
 

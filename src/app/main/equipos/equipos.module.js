@@ -19,6 +19,11 @@
                 'content@app': {
                     templateUrl: 'app/main/equipos/equipos.html',
                     controller : 'equiposController as vm'
+                },
+                data: {
+                    permissions: {
+                        only: ['Admin']
+                    }
                 }
             },
             bodyClass: 'equipos'

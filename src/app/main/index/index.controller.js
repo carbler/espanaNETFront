@@ -11,7 +11,7 @@
         .controller('indexController', indexController);
 
     /** @ngInject */
-    function indexController($state,DialogFactory)
+    function indexController()
     {
         var vm = this;
         vm.credenciales = {};
