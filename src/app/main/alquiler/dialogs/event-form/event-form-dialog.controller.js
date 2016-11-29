@@ -6,18 +6,22 @@
         .controller('EventFormDialogController', EventFormDialogController);
 
     /** @ngInject */
-    function EventFormDialogController($mdDialog, dialogData)
+    function EventFormDialogController($mdDialog, dialogData,AlquilerService,DialogFactory)
     {
         var vm = this;
+        vm.alquiler = {};
 
-        // Data
+             // Data
         vm.dialogData = dialogData;
+        vm.dialogData.start = vm.dialogData.end;
         vm.notifications = ['15 minutes before', '30 minutes before', '1 hour before'];
 
         // Methods
         vm.saveEvent = saveEvent;
         vm.removeEvent = removeEvent;
         vm.closeDialog = closeDialog;
+
+       // console.log(closeDialog);
 
         /** CHIP **/
         vm.readonly = false;
@@ -37,7 +41,9 @@
          */
         function transformChip(chip) {
             // If it is an object, it's already a known chip
-            console.log(chip);
+
+
+
            if (angular.isObject(chip)) {
                 return chip;
               // return { name: chip, type: 'new' }
@@ -197,18 +203,50 @@
          */
         function saveEvent()
         {
+
+            vm.alquiler.equipos="";
+            vm.selectedVegetables.forEach(function(datos){
+                for(var i=0;i<+datos.type;i++){
+                    vm.alquiler.equipos += datos.name+",";
+                }
+            })
+
             // Convert the javascript date objects back to the moment.js dates
             var dates = {
                 start: moment.utc(vm.calendarEvent.start),
                 end  : moment.utc(vm.calendarEvent.end)
             };
 
+            vm.alquiler.fechaInicial = dates.start;
+            vm.alquiler.fechaFinal = dates.end;
+            var p = AlquilerService.createAlquiler(vm.alquiler);
+            p.then(
+                function (datos) {
+                    var respuesta = datos.data;
+
+
+                    if(respuesta.error.length>0){
+                        DialogFactory.ShowSimpleToast(respuesta.mensaje);
+                    }else{
+                        DialogFactory.ShowSimpleToast(respuesta.mensaje);
+                        closeDialog();
+                    }
+
+                },
+                function (error) {
+                    DialogFactory.ShowSimpleToast(error.error_description);
+
+                }
+            )
+            /**
             var response = {
                 type         : vm.dialogData.type,
                 calendarEvent: angular.extend({}, vm.calendarEvent, dates)
             };
 
             $mdDialog.hide(response);
+
+             */
         }
 
         /**

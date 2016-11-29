@@ -144,7 +144,7 @@
         // Methods
         vm.addEvent = addEvent;
         vm.next = next;
-        vm.prev = next;
+        vm.prev = prev;
 
         //////////
 
