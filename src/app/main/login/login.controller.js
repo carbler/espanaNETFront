@@ -48,7 +48,7 @@
                     user._setNombreRol(respuesta.roles[0]);
                     //console.log(respuesta);
                     DialogFactory.ShowSimpleToast("Conectado...");
-                    console.log(user._getNombreRol());
+                   // console.log(user._getNombreRol());
 
 
                     if(user._getNombreRol()=="SuperAdmin"){
