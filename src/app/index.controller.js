@@ -9,6 +9,9 @@
     /** @ngInject */
     function IndexController(fuseTheming)
     {
+       if(user._getUsername()==undefined){
+           user.invitado();
+       }
         var vm = this;
 
         // Data

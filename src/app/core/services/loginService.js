@@ -39,8 +39,9 @@
             var GetUser = function (getData) {
                 return $http({
                     method: 'GET',
-                    url: url + 'api/accounts/user/' + getData.userName,
-                    headers: {'authorization': 'bearer ' + getData.token                          }
+                    url: url + 'api/accounts/user/' + user._getUsername(),
+                    headers: {'authorization': 'bearer ' + user._getToken()
+                    }
                 });
             };
 

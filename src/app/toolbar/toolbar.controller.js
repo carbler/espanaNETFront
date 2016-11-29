@@ -124,7 +124,7 @@
          */
         function logout()
         {
-            localStorage.clear();
+            user.invitado();
             $state.go('app.login', {});
         }
 

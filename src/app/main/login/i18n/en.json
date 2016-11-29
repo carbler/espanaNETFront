@@ -1,7 +1,7 @@
 {
     "LOGIN": {
         "TITLE": "Ingrese a su cuenta",
-        "EMAIL": "Email",
+        "EMAIL": "Nombre de usuario",
         "PASSWORD": "Password",
         "REMEMBER_ME": "No cerrar sesión",
         "FORGOT_PASSWORD": "¿Recordar contraseña?",

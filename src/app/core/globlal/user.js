@@ -46,5 +46,10 @@ var user = {
     },
     _getUsername: function () {
         return localStorage.Username;
+    },
+
+    invitado  : function(){
+        localStorage.clear();
+        user._setNombreRol('Invitado');
     }
 };

@@ -39,7 +39,7 @@
         }; // te quiero mucho come monda la ultima vez que te ayudo en este malparido proyecto, abre mi proyecto de ferremotos
 
         function GetUser() {
-            var promiseGet = AlquilerService.GetUser();
+            var promiseGet = LoginService.GetUser();
             promiseGet.then(
                 function (data) {
                     var respuesta = data.data;
@@ -54,7 +54,7 @@
                     if(user._getNombreRol()=="SuperAdmin"){
                         $state.go('app.equipos', {});
                     }else{
-                        $state.go('app.alquiler', {});
+                        $state.go('app.alquilerInstitucion', {});
                     }
 
                 },

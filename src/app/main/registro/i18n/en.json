@@ -1,10 +1,10 @@
 {
     "REGISTRO": {
         "TITLE": "Crea una cuenta",
-        "USERNAME": "Usuario",
-        "FIRSTNAME": "Nombres",
-        "LASTNAME": "Apellidos",
-        "EMAIL": "Email",
+        "USERNAME": "Institucion",
+        "FIRSTNAME": "Nombre del ncargado",
+        "LASTNAME": "Apellidos del encargado",
+        "EMAIL": "Email del encargado",
         "PASSWORD": "Password",
         "PASSWORD_CONFIRM": "Confirmar Password",
         "ROLE": "Cliente",

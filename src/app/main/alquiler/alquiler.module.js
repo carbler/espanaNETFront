@@ -25,7 +25,7 @@
             },
             data: {
                 permissions: {
-                    only: ['Institucion']
+                    only: ['Invitado']
 
                 }
             },

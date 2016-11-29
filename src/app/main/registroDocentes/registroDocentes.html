@@ -27,7 +27,7 @@
 
                 <div layout="column" layout-gt-sm="row">
                     <md-input-container flex>
-                        <input type="text" name="nombres" ng-model="vm.credenciales.Nombres"
+                        <input type="text" name="nombres" ng-model="vm.credenciales.Nombre"
                                placeholder="Nombres" translate-attr-placeholder="REGISTRODOCENTES.FIRSTNAME"
                                required>
                         <div ng-messages="basicForm.nombres.$error" role="alert">
@@ -62,7 +62,7 @@
                     </md-input-container>
 
                     <md-input-container flex>
-                        <input type="email" name="email" ng-model="vm.credenciales.Email" placeholder="Email"
+                        <input type="email" name="email" ng-model="vm.credenciales.Correo" placeholder="Email"
                                translate
                                ng-pattern="/^.+@.+\..+$/" required>
                         <div ng-messages="basicForm.email.$error" role="alert" multiple>
@@ -91,7 +91,7 @@
                 </div>
 
                 <md-button type="submit" class="md-raised md-accent" aria-label="Submit"
-                           ng-disabled="basicForm.$invalid || basicForm.$pristine" ng-click="vm.createDocentes()">
+                           ng-disabled="basicForm.$invalid || basicForm.$pristine" ng-click="vm.createDocente()">
                     Ingresar
                 </md-button>
             </form>
