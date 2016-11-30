@@ -31,9 +31,9 @@
             )
         };
         vm.Equipos = [
-            {"idEquipo": 1, "nombreEquipo": "Luces"},
-            {"idEquipo": 2, "nombreEquipo": "Sonido"},
-            {"idEquipo": 3, "nombreEquipo": "Proyector"}
+            {"idEquipo": "Luces", "nombreEquipo": "Luces"},
+            {"idEquipo": "Sonido", "nombreEquipo": "Sonido"},
+            {"idEquipo": "Proyector", "nombreEquipo": "Proyector"}
         ]
 
     }

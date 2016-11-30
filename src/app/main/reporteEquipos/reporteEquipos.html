@@ -15,7 +15,7 @@
 
         <!--<div class="mv-24"></div> -->
 
-        <!-- BASIC FORM -->
+        <!-- BASIC FORM
         <div class="form-wrapper md-whiteframe-1dp" flex="60">
 
             <form name="basicForm" class="md-inline-form" novalidate>
@@ -48,50 +48,60 @@
     </div>
     <!-- / CONTENT -->
 
-    <div class="content" ng-cloak="">
+    <div class="content" md-background-bg layout="row" layout-align="start start" style="width: 100%;">
 
-        <div layout="row">
-            <div flex="55" class="white-bg md-whiteframe-4dp">
-                <table class="dataTable row-border hover" datatable="ng" dt-options="dtOptions">
-                    <thead>
-                    <tr>
-                        <th class="secondary-text">
-                            <div class="table-header">
-                                <span class="column-title">Modelo</span>
-                            </div>
-                        </th>
-                        <th class="secondary-text">
-                            <div class="table-header">
-                                <span class="column-title">Fecha de Compra</span>
-                            </div>
-                        </th>
-                        <th class="secondary-text">
-                            <div class="table-header">
-                                <span class="column-title">Serial</span>
-                            </div>
-                        </th>
-                        <th class="secondary-text">
-                            <div class="table-header">
-                                <span class="column-title">Estado</span>
-                            </div>
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="item in Equipos" ng-click="seleccionar(item.tipo)">
-                        <td>{{ $index + 1}}</td>
-                        <td>{{item.tipo }}</td>
-                        <td>
-                            <md-button ng-click="ShowEdit(ev,pieza)" class="md-fab md-icon-button" style="background: #004D40 !important;">
-                                <md-tooltip md-direction="left">Editar Motocicleta</md-tooltip>
-                                <md-icon md-font-icon="icon-border-color"></md-icon>
-                            </md-button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="main scrollable" ms-scroll>
+
+            <!-- CONTACT LIST -->
+            <md-list class="contacts-list">
+                <md-subheader class="md-no-sticky md-white-bg">
+                    <div layout="row" layout-align="space-between center">
+                        <div class="list-title" layout="row" layout-align="start center"
+                             ng-hide="editGroupForm.$visible">
+                            <span>Equipos</span>
+                            <span class="secondary-text contacts-count">
+                                {{equipos.length}}
+                            </span>
+                        </div>
+                    </div>
+                </md-subheader>
+
+                <md-list-item class="md-white-bg md-3-line md-list" md-ink-ripple style="cursor: pointer"
+                              ng-repeat="item in equipos | filter: search"
+                              ng-click="openContactDialog($event, item)" ng-disabled="item.estado == false">
+                    <img md-menu-align-target class="avatar" src="assets/images/avatars/profile.jpg">
+                    <md-icon md-font-icon class="icon-checkbox-marked-circle" ng-if="item.estado == true"
+                             style="color: #4CAF50; position: absolute; bottom: 16px; left: 45px; font-size: 20px;">
+                    </md-icon>
+                    <md-icon md-font-icon class="icon-close-circle" ng-if="item.estado == false"
+                             style="color: #AA0000; position: absolute; bottom: 16px; left: 45px; font-size: 20px;">
+                    </md-icon>
+                    <div class="md-list-item-text">
+                        <h3 style="padding-left: 10px;">C.C. {{item.identificacion}}</h3>
+                        <h4 style="padding-left: 10px;">{{item.nombres}} {{item.apellidos}} ({{item.nombreRol}})</h4>
+                        <p style="padding-left: 10px;">{{item.telefono}} - {{item.direccion}}</p>
+                    </div>
+                    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="layout-wrap">
+                        <md-switch ng-model="item.estado" aria-label="Switch 2" ng-value="item.estado" ng-click="showConfirm(ev,item)">
+                            <label ng-if="item.estado == false" style="font-weight: bold" class="md-warn">Inactivo</label>
+                            <label ng-if="item.estado == true" style="font-weight: bold" class="md-warn">Activo</label>
+                        </md-switch>
+                    </section>
+                </md-list-item>
+
+            </md-list>
+            <md-list-item class="no-results md-white-bg" ng-show="filteredContacts.length === 0">
+                <p translate="CONTACTS.NO_RESULTS">No results..</p>
+            </md-list-item>
+
         </div>
+
     </div>
+    <md-button class="md-fab md-accent md-icon-button" id="add-contact-button" ng-click="openContactDialog($event)"
+               aria-label="add contact">
+        <md-icon md-font-icon="icon-account-plus"></md-icon>
+        <md-tooltip md-direction="left">Registrar Equipo</md-tooltip>
+    </md-button>
 
 </div>
+

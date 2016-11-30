@@ -6,7 +6,7 @@
 (function () {
     'use strict';
 
-    angular.module('app.reporteEquipos', [])
+    angular.module('app.reporteEquipos', ['xeditable'])
         .config(config);
 
     /** @ngInject */

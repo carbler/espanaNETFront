@@ -1,7 +1,7 @@
 {
-    "REPORTEDOCENTES": {
+    "REPORTEEQUIPOS": {
         "TITLE": "Consultar docentes",
         "SUBTITLE": "Buscar docente",
-        "DOCENTES": "Docentes"
+        "EQUIPOS": "Docentes"
     }
 }
