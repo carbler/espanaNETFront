@@ -30,9 +30,28 @@
             });
         };
 
+        var getAlquileres = function (getData) {
+            return $http({
+                method: 'POST',
+                url: url + '/api/alquiler/AlquileresFecha',
+                headers: {'authorization': 'bearer ' + user._getToken()},
+                data: getData
+            });
+        };
+
+        var getAlquileresInstitucion = function (getData) {
+            return $http({
+                method: 'POST',
+                url: url + '/api/alquilerInstitucion/AlquileresFecha',
+                headers: {'authorization': 'bearer ' + user._getToken()},
+                data: getData
+            });
+        };
+
         equiposServiceFactory.createAlquiler = createAlquiler;
         equiposServiceFactory.createAlquilerInstitucion = createAlquilerInstitucion;
-
+        equiposServiceFactory.getAlquileres = getAlquileres;
+        equiposServiceFactory.getAlquileresInstitucion = getAlquileresInstitucion;
         return equiposServiceFactory;
 
     }

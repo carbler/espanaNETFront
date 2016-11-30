@@ -78,52 +78,66 @@
             var veggies = [
                 {
                     'name': 'Proyector',
-                    'type': '1'
+                    'type': '1',
+                    'texto':'cantidad 1'
                 },
                 {
                     'name': 'Proyector',
-                    'type': '2'
+                    'type': '2',
+                    'texto':'cantidad 2'
+
                 },
                 {
                     'name': 'Proyector',
-                    'type': '3'
+                    'type': '3',
+                    'texto':'cantidad 3'
                 },
                 {
                     'name': 'Proyector',
-                    'type': '4'
+                    'type': '4',
+                    'texto':'cantidad 4'
                 },
                 {
                     'name': 'Luces',
-                    'type': '1'
+                    'type': '1',
+                    'texto':'cantidad 1'
                 },
                 {
                     'name': 'Luces',
-                    'type': '2'
+                    'type': '2',
+                    'texto':'cantidad 2'
                 },
                 {
                     'name': 'Luces',
-                    'type': '3'
+                    'type': '3',
+                    'texto':'cantidad 3'
                 },
                 {
                     'name': 'Luces',
-                    'type': '4'
+                    'type': '4',
+                    'texto':'cantidad 4'
                 },
                 {
                     'name': 'Sonido',
-                    'type': '1'
+                    'type': '1',
+                    'texto':'cantidad 1'
                 },
                 {
                     'name': 'Sonido',
-                    'type': '2'
+                    'type': '2',
+                    'texto':'cantidad 2'
                 },
                 {
                     'name': 'Sonido',
-                    'type': '3'
+                    'type': '3',
+                    'texto':'cantidad 3'
                 },
                 {
                     'name': 'Sonido',
-                    'type': '4'
+                    'type': '4',
+                    'texto':'cantidad 4'
                 }
+
             ];
 
             return veggies.map(function (veg) {

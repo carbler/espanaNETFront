@@ -19,7 +19,7 @@
             url      : '/alquiler',
             views    : {
                 'content@app': {
-                    templateUrl: 'app/main/alquiler/alquilerIns.html',
+                    templateUrl: 'app/main/alquiler/alquiler.html',
                     controller : 'alquilerController as vm'
                 }
             },
