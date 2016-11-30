@@ -21,9 +21,20 @@
             });
         };
 
+        var createAlquilerInstitucion = function (getData) {
+            return $http({
+                method: 'POST',
+                url: url + '/api/alquilerInstitucion/create',
+                headers: {'authorization': 'bearer ' + user._getToken()},
+                data: getData
+            });
+        };
+
         equiposServiceFactory.createAlquiler = createAlquiler;
+        equiposServiceFactory.createAlquilerInstitucion = createAlquilerInstitucion;
 
         return equiposServiceFactory;
 
     }
+
 })();

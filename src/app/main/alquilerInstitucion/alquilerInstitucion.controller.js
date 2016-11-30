@@ -245,7 +245,7 @@
             };
 
             $mdDialog.show({
-                controller         : 'EventFormDialogController',
+                controller         : 'InstitucionFormDialogController',
                 controllerAs       : 'vm',
                 templateUrl        : 'app/main/alquilerInstitucion/dialogs/event-form/event-form-dialog.html',
                 parent             : angular.element($document.body),
