@@ -28,9 +28,9 @@
                 <div layout="column" layout-gt-sm="row">
                     <md-input-container flex>
                         <label translate="REPORTEDOCENTES.DOCENTES">Docentes</label>
-                        <md-select ng-model="vm.credenciales.Docente">
-                            <md-option ng-repeat="item in vm.Docentes" value="{{item.idDocente}}">
-                                {{item.nombreDocente}}
+                        <md-select ng-model="vm.Reporte.docenteId">
+                            <md-option ng-repeat="item in vm.Docentes" ng-value="item.docenteId">
+                                {{item.nombre}} {{item.apellidos}}
                             </md-option>
                         </md-select>
                     </md-input-container>

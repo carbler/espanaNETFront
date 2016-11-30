@@ -21,7 +21,17 @@
             });
         };
 
+        var getDocente = function (getData) {
+            return $http({
+                method: 'GET',
+                url: url + '/api/docentes/institucion/' + user._getUsername(),
+                headers: {'authorization': 'bearer ' + user._getToken()},
+                data: getData
+            });
+        };
+
         equiposServiceFactory.createDocente = createDocente;
+        equiposServiceFactory.getDocente = getDocente;
 
         return equiposServiceFactory;
 

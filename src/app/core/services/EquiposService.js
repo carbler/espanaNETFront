@@ -21,7 +21,27 @@
             });
         };
 
+        var getEquipo = function (getData) {
+            return $http({
+                method: 'GET',
+                url: url + '/api/equipos/listado',
+                headers: {'authorization': 'bearer ' + user._getToken()},
+                data: getData
+            });
+        };
+
+        var EditEquipos = function (getData) {
+            return $http({
+                method: 'POST',
+                url: url + '/api/equipos/editar',
+                headers: {'authorization': 'bearer ' + user._getToken()},
+                data: getData
+            });
+        };
+
         equiposServiceFactory.createEquipo = createEquipo;
+        equiposServiceFactory.getEquipo = getEquipo;
+        equiposServiceFactory.EditEquipos = EditEquipos;
 
         return equiposServiceFactory;
 

@@ -1,41 +1,70 @@
 /**
- * Created by EspañaNet on 27/11/2016.
+ * Created by EspañaNet on 29/11/2016.
  */
 
 (function () {
     'use strict';
 
-    angular.module('app.reporteDocentes')
-        .controller('ReporteDocentesController', ReporteDocentesController);
+    angular.module('app.reporteEquipos')
+        .controller('ReporteEquiposController', ReporteEquiposController);
 
     /** @ngInject */
-    function ReporteDocentesController($scope, DialogFactory, $timeout, $state, DocentesService ) {
+    function ReporteEquiposController($scope, DialogFactory, $timeout, $state, $mdDialog, reporteEquiposGlobalFactory, EquiposService ) {
         var vm = this;
         vm.credenciales = {};
 
-        vm.Docentes =[];
+
+        vm.seleccionar = function (data) {
+            vm.select = data;
+        };
+
+        vm.Equipos =[];
         vm.Reporte = {};
+
+        vm.dtOptions = {
+            dom       : '<"top"f>rt<"bottom"<"left"<"length"l>><"right"<"info"i><"pagination"p>>>',
+            pagingType: 'simple',
+            autoWidth : false,
+            responsive: true,
+            language: {
+                "sSearch": "Buscar",
+                "sInfo": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                }
+            }
+        };
 
         __init();
 
         function __init() {
-            getDocente();
+            getEquipo();
+            editEquipo();
         }
 
-        function getDocente(){
-            var promiseGet = DocentesService.getDocente();
+        function getEquipo(){
+            var promiseGet = EquiposService.getEquipo();
             promiseGet.then(
                 function (data) {
                     var respuesta = data.data;
                     if(respuesta.error.length == 0){
-                        vm.Docentes = respuesta.data;
-                        console.log(vm.Docentes);
+                        vm.Equipos = respuesta.data;
+                        console.log(vm.Equipos);
                     }
                 },
                 function (err) {
                     console.log(JSON.stringify(err));
                 }
             )
+        }
+
+        function editEquipo() {
+
+
         }
 
 

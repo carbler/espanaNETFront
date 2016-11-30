@@ -41,7 +41,7 @@
 
              // Navigation
              msNavigationServiceProvider.saveItem('registro', {
-                 title : 'Registro',
+                 title : 'Registrar usuarios',
                  icon : 'icon-person-plus',
                  state : 'app.registro',
                  weight: 4

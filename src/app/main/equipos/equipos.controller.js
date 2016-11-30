@@ -20,8 +20,8 @@
             p.then(
                 function (datos) {
 
-                    DialogFactory.ShowSimpleToast("Conectado...");
-                    $state.go('app.alquiler', {});
+                    DialogFactory.ShowSimpleToast("Equipo registrado...");
+                    $state.go('app.index', {});
 
                 },
                 function (error) {
@@ -31,8 +31,9 @@
             )
         };
         vm.Equipos = [
-            {"idEquipo": 1, "nombreEquipo": "Video Beasm"},
-            {"idEquipo": 2, "nombreEquipo": "Luces"}
+            {"idEquipo": 1, "nombreEquipo": "Luces"},
+            {"idEquipo": 2, "nombreEquipo": "Sonido"},
+            {"idEquipo": 3, "nombreEquipo": "Proyector"}
         ]
 
     }

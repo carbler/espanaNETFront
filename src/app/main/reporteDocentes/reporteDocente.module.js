@@ -18,7 +18,7 @@
                 views  : {
                     'content@app': {
                         templateUrl: 'app/main/reporteDocentes/reporteDocentes.html',
-                        controller : 'ReporteDocentesController'
+                        controller : 'ReporteDocentesController as vm'
                     }
                 },
                 data: {
@@ -33,7 +33,7 @@
 
         // Navigation
         msNavigationServiceProvider.saveItem('reporteDocentes', {
-            title    : 'Reporte de Docentes',
+            title    : 'Consulta de Docentes',
             icon     : 'icon-file-find',
             state    : 'app.reporteDocentes',
             weight   : 1
