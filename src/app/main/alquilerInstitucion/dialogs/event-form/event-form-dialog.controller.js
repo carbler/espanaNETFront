@@ -251,6 +251,7 @@
             vm.alquiler.fechaInicial = dates.start;
             vm.alquiler.fechaFinal = dates.end;
             vm.alquiler.Docente = vm.Reporte.docenteId;
+            vm.alquiler.Institucion = user._getUsername();
             var p = AlquilerService.createAlquilerInstitucion(vm.alquiler);
             p.then(
                 function (datos) {

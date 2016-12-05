@@ -48,10 +48,22 @@
             });
         };
 
+        var getAlquileresDocente = function (getData) {
+            return $http({
+                method: 'POST',
+                url: url + '/api/alquilerInstitucion/AlquileresDocente',
+                headers: {'authorization': 'bearer ' + user._getToken()},
+                data: getData
+            });
+        };
+
         equiposServiceFactory.createAlquiler = createAlquiler;
         equiposServiceFactory.createAlquilerInstitucion = createAlquilerInstitucion;
         equiposServiceFactory.getAlquileres = getAlquileres;
         equiposServiceFactory.getAlquileresInstitucion = getAlquileresInstitucion;
+        equiposServiceFactory.getAlquileresDocente = getAlquileresDocente;
+
+
         return equiposServiceFactory;
 
     }
