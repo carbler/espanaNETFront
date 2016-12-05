@@ -1,50 +1,34 @@
 <!-- DIALOG -->
 <md-dialog class="contact-dialog" aria-label="New Task">
 
-    <form name="reporteEquipoForm" class="md-inline-form" novalidate>
-
-        <!-- DIALOG TOOLBAR -->
-        <md-toolbar class="md-accent md-tall" layout="column">
-
-            <!-- TOOLBAR TOP -->
-            <div class="md-toolbar-tools md-toolbar-tools-top" layout="row" layout-align="space-between center">
-                <span class="title">{{titulo}}</span>
-                <md-button class="md-icon-button" ng-click="closeDialog()">
-                    <md-icon md-font-icon="icon-close"></md-icon>
-                </md-button>
-            </div>
-            <!-- / TOOLBAR TOP -->
-
-            <!-- TOOLBAR MIDDLE -->
-            <div class="md-toolbar-tools md-toolbar-tools-middle" flex layout="column" layout-align="center center">
-                <div layout="column" layout-align="center center">
-                    <img md-menu-align-target class="avatar" alt src="assets/images/avatars/profile.jpg" style="width: 96px; height: 96px;">
-                    <div class="contact-name">{{equipo.modelo}} {{equipo.serial}}</div>
-                </div>
-            </div>
-
-        </md-toolbar>
+    <form name="EquipoForm" class="md-inline-form" novalidate>
+        <td>{{item.modelo}}</td>
+        <td>{{item.tipo }}</td>
+        <td>{{item.marca }}</td>
+        <td>{{item.fechaCompra }}</td>
+        <td>{{item.serial }}</td>
+        <td>{{item.descripcion }}</td>
 
         <md-dialog-content ms-scroll>
             <div layout="row">
                 <md-input-container class="md-icon-float md-block" flex="">
-                    <label>Modelos</label>
+                    <label>Modelo</label>
                     <md-icon md-font-icon="icon-account"></md-icon>
-                    <input ng-model="equipo.modelo" type="text" ng-required md-autofocus required md-no-asterisk name="modelos">
-                    <div ng-messages="reporteEquipoForm.modelo.$error" role="alert">
+                    <input ng-model="equipo.modelo" type="text" ng-required md-autofocus required md-no-asterisk name="modelo">
+                    <div ng-messages="EquipoForm.modelo.$error" role="alert">
                         <div ng-message="required">
-                            <span>Modelos es un campo obligatorio.</span>
+                            <span>Modelo es un campo obligatorio.</span>
                         </div>
                     </div>
                 </md-input-container>
 
                 <md-input-container class="md-icon-float md-block" flex="">
-                    <label>Tipos</label>
+                    <label>Tipo</label>
                     <md-icon md-font-icon="icon-account"></md-icon>
-                    <input ng-model="equipo.tipo" type="text" required md-no-asterisk name="tipos">
-                    <div ng-messages="reporteEquipoForm.tipos.$error" role="alert">
+                    <input ng-model="equipo.tipo" type="text" required md-no-asterisk name="tipo">
+                    <div ng-messages="EquipoForm.tipo.$error" role="alert">
                         <div ng-message="required">
-                            <span>Tipos es un campo obligatorio.</span>
+                            <span>Tipo es un campo obligatorio.</span>
                         </div>
                     </div>
                 </md-input-container>
@@ -53,45 +37,46 @@
             <md-input-container class="md-icon-float md-block" flex="">
                 <label>Marca</label>
                 <md-icon md-font-icon="icon-email"></md-icon>
-                <input ng-model="equipo.marca" type="text" required md-no-asterisk name="marcas">
-                <div ng-messages="reporteEquipoForm.marcas.$error" role="alert">
+                <input ng-model="equipo.marca" type="text" required md-no-asterisk name="marca">
+                <div ng-messages="EquipoForm.marca.$error" role="alert">
                     <div ng-message="required">
-                        <span>Marcas es un campo obligatorio.</span>
+                        <span>Marca es un campo obligatorio.</span>
                     </div>
                 </div>
             </md-input-container>
 
             <div layout="row">
                 <md-input-container class="md-icon-float md-block" flex="">
-                    <label>Fecha Compra</label>
+                    <label>Fecha de Compra</label>
                     <md-icon md-font-icon="icon-clipboard-text"></md-icon>
-                    <input ng-model="equipo.identificacion" type="date" required md-no-asterisk name="fechas">
-                    <div ng-messages="reporteEquipoForm.fechas.$error" role="alert">
+                    <input ng-model="equipo.fechaCompra" type="date" required md-no-asterisk name="fechaCompra">
+                    <div ng-messages="EquipoForm.fechaCompra.$error" role="alert">
                         <div ng-message="required">
-                            <span>Fechas es un campo obligatorio.</span>
+                            <span>Fecha de Compra es un campo obligatorio.</span>
                         </div>
                     </div>
                 </md-input-container>
+
+                <md-input-container class="md-icon-float md-block" flex="">
+                    <label>Serial</label>
+                    <md-icon md-font-icon="icon-clipboard-text"></md-icon>
+                    <input ng-model="equipo.serial" type="text" required md-no-asterisk name="serial">
+                    <div ng-messages="EquipoForm.serial.$error" role="alert">
+                        <div ng-message="required">
+                            <span>Serial de Compra es un campo obligatorio.</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
 
             </div>
 
             <div layout="row">
                 <md-input-container class="md-icon-float md-block" flex="">
-                    <label>Serial</label>
+                    <label>Descripción</label>
                     <md-icon md-font-icon="icon-clipboard-text"></md-icon>
-                    <input ng-model="equipo.serial" type="text" required md-no-asterisk name="serial">
-                    <div ng-messages="reporteEquipoForm.serial.$error" role="alert">
-                        <div ng-message="required">
-                            <span>Serial es un campo obligatorio.</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container class="md-icon-float md-block" flex="">
-                    <label>Descripcion</label>
-                    <md-icon md-font-icon="icon-phone"></md-icon>
-                    <input ng-model="equipo.descripcion" type="text" required md-no-asterisk name="descripcion">
-                    <div ng-messages="reporteEquipoForm.telefono.$error" role="alert">
+                    <textarea ng-model="equipo.descripcion" required md-no-asterisk name="descripcion"></textarea>
+                    <div ng-messages="EquipoForm.descripcion.$error" role="alert">
                         <div ng-message="required">
                             <span>Descripcion es un campo obligatorio.</span>
                         </div>
@@ -112,7 +97,7 @@
 
                 <md-button type="submit" ng-if="nuevoEquipo" ng-click="CrearEquipo()"
                            class="send-button md-accent md-raised"
-                           ng-disabled="reporteEquipoForm.$invalid || reporteEquipoForm.$pristine">
+                           ng-disabled="EquipoForm.$invalid || EquipoForm.$pristine">
                     Guardar
                 </md-button>
 

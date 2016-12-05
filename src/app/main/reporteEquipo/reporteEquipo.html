@@ -20,11 +20,12 @@
 
             <form name="basicForm" class="md-inline-form" novalidate>
 
-                <div class="form-title" translate="REPORTEEQUIPO.SUBTITLE">Buscar equipos</div>
+                <div class="form-title" translate="REPORTEEQUIPO.SUBTITLE">Editar equipos</div>
                 <div class="pb-16">
-                    A continuación busque los equipos
+                    A continuación seleccione el equipo a editar
                 </div>
 
+                <!--
                 <div layout="column" layout-gt-sm="row">
                     <md-input-container flex>
                         <label translate="REPORTEEQUIPO.EQUIPOS">Equipos</label>
@@ -40,7 +41,7 @@
                            ng-disabled="basicForm.$invalid || basicForm.$pristine" ng-click="vm.getEquipo()">
                     Buscar
                 </md-button>
-
+                -->
 
                 <!-- TABLE -->
                 <div class="content" ng-cloak="">
@@ -83,7 +84,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="item in vm.Equipo">
+                                <tr ng-repeat="item in vm.Equipos" ng-click="openEquipoDialog($event, item)">
                                     <td>{{item.modelo}}</td>
                                     <td>{{item.tipo }}</td>
                                     <td>{{item.marca }}</td>
