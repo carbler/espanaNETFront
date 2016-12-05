@@ -30,7 +30,7 @@
             'app.registroDocentes',
             'app.alquilerInstitucion',
             'app.reporteDocentes',
-            'app.reporteEquipos',
+            'app.reporteEquipo',
             'app.reporteAlquileres',
             'app.reporteAlquileresInstitucion'
 

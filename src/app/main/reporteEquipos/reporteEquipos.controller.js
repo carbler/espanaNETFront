@@ -35,7 +35,7 @@
                     var respuesta = data.data;
                     if(respuesta.error.length == 0){
                         EquiposInhabilitados(respuesta.data);
-                        console.log(vm.equipos);
+
                     }
                 },
                 function (err) {

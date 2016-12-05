@@ -11,9 +11,13 @@
         .controller('indexController', indexController);
 
     /** @ngInject */
-    function indexController()
+    function indexController(Cards)
     {
         var vm = this;
+        vm.credenciales = {};
+
+        // Data cards
+        vm.cards = Cards.data;
         vm.credenciales = {};
 
 

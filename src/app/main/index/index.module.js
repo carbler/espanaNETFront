@@ -12,7 +12,7 @@
         .config(config);
 
     /** @ngInject */
-    function config($stateProvider, $translatePartialLoaderProvider, msNavigationServiceProvider)
+    function config($stateProvider, $translatePartialLoaderProvider, msNavigationServiceProvider, msApiProvider)
     {
         // State
         $stateProvider.state('app.index', {
@@ -22,6 +22,12 @@
                 'content@app': {
                     templateUrl: 'app/main/index/index.html',
                     controller : 'indexController as vm'
+                }
+            },
+            resolve: {
+                Cards: function (msApi)
+                {
+                    return msApi.resolve('cards@get');
                 }
             },
             data: {
@@ -43,6 +49,9 @@
             state : 'app.index',
             weight: 1
         });
+
+        // Api
+        msApiProvider.register('cards', ['app/data/cards/cards.json']);
 
     }
 

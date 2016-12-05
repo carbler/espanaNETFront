@@ -1,7 +1,7 @@
 {
-    "REPORTEEQUIPOS": {
-        "TITLE": "Consultar equipos",
-        "SUBTITLE": "Buscar equipos",
-        "EQUIPOS": "Equipos"
+    "REPORTEDOCENTES": {
+        "TITLE": "Consultar Docentes",
+        "SUBTITLE": "Buscar Docentes",
+        "DOCENTES": "Docentes"
     }
 }

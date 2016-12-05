@@ -21,7 +21,7 @@
             });
         };
 
-        var getEquipo = function () {
+        var getEquipo = function (getData) {
             return $http({
                 method: 'GET',
                 url: url + '/api/equipos/listado',
