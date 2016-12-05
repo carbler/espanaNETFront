@@ -57,11 +57,30 @@
             });
         };
 
+        var getAlquileresHoy = function () {
+            return $http({
+                method: 'GET',
+                url: url + '/api/alquiler/Hoy',
+                headers: {'authorization': 'bearer ' + user._getToken()}
+
+            });
+        };
+
+        var getAlquileresInsitucionHoy= function () {
+            return $http({
+                method: 'GET',
+                url: url + '/api/alquilerInstitucion/Hoy',
+                headers: {'authorization': 'bearer ' + user._getToken()}
+            });
+        };
+
         equiposServiceFactory.createAlquiler = createAlquiler;
         equiposServiceFactory.createAlquilerInstitucion = createAlquilerInstitucion;
         equiposServiceFactory.getAlquileres = getAlquileres;
         equiposServiceFactory.getAlquileresInstitucion = getAlquileresInstitucion;
         equiposServiceFactory.getAlquileresDocente = getAlquileresDocente;
+        equiposServiceFactory.getAlquileresHoy = getAlquileresHoy;
+        equiposServiceFactory.getAlquileresInsitucionHoy = getAlquileresInsitucionHoy;
 
 
         return equiposServiceFactory;

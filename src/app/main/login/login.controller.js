@@ -54,8 +54,10 @@
                     if(user._getNombreRol()=="SuperAdmin"){
                         $state.go('app.equipos', {});
                     }else{
-                        $state.go('app.alquilerInstitucion', {});
+                        $state.go('app.index', {});
                     }
+
+
 
                 },
                 function (err) {

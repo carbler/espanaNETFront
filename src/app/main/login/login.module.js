@@ -36,6 +36,7 @@
         // Translation
         $translatePartialLoaderProvider.addPart('app/main/login');
 
+        /*
 
             // Navigation
             msNavigationServiceProvider.saveItem('login', {
@@ -44,6 +45,8 @@
                 state : 'app.login',
                 weight: 4
             });
+
+        */
         }
 
 

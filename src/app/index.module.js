@@ -32,7 +32,8 @@
             'app.reporteDocentes',
             'app.reporteEquipo',
             'app.reporteAlquileres',
-            'app.reporteAlquileresInstitucion'
+            'app.reporteAlquileresInstitucion',
+                'app.reporteAlquileresHoy'
 
         ]);
 })();
